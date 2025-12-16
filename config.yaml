@@ -1,0 +1,9 @@
+app:
+  name: "MyApp"
+  port: 9002
+  environment: "dev"
+database:
+  port: 5432
+  host: localhost
+  password: ""
+  name: ""
