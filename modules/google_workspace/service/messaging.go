@@ -6,6 +6,6 @@ import (
 	chatpb "cloud.google.com/go/chat/apiv1/chatpb"
 )
 
-type ChatService interface {
+type Messaging interface {
 	SendMessage(ctx context.Context, spaceID string, text string) (*chatpb.Message, error)
 }

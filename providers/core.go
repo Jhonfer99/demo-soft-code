@@ -14,7 +14,7 @@ import (
 
 func RegisterDependencies(injector *do.Injector) {
 
-	do.Provide(injector, func(i *do.Injector) (serviceGoogle.ChatService, error) {
+	do.Provide(injector, func(i *do.Injector) (serviceGoogle.Messaging, error) {
 		ctx := context.Background() 
 		return serviceGoogle.NewChatService(ctx)
 	})
@@ -29,7 +29,7 @@ func RegisterDependencies(injector *do.Injector) {
 
 	do.Provide(
 		injector, func(i *do.Injector) (serviceGoogleController.GoogleWorkspaceController, error) {
-				chatService := do.MustInvoke[serviceGoogle.ChatService](i)
+				chatService := do.MustInvoke[serviceGoogle.Messaging](i)
 			return serviceGoogleController.NewWorkSpaceController(i, chatService), nil
 		},
 	)

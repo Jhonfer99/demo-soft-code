@@ -13,6 +13,7 @@ func RegisterRoutes(server *gin.Engine, injector *do.Injector) {
 	userRoutes := server.Group("/api/v1/google_workspace")
 	{
 		userRoutes.GET("", serviceDeskControl.CreateMessage)
+		userRoutes.POST("", serviceDeskControl.GoogleWorkspaceHandler)
 		
 	}
 }

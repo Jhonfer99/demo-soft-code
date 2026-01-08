@@ -11,7 +11,7 @@ type chatService struct {
 	client *chat.Client
 }
 
-func NewChatService(ctx context.Context) (ChatService, error) {
+func NewChatService(ctx context.Context) (Messaging, error) {
 	c, err := chat.NewClient(ctx)
 	if err != nil {
 		return nil, err
