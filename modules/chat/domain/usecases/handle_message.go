@@ -9,16 +9,15 @@ import (
 	// 	usecases "github.com/fsangopanta/demo-soft-code/modules/chat/domain/models/google/inbound"
 )
 
-
-type UseCase struct {
+type ProcessIncomingMessageUseCase struct {
 	processor Processor
 }
 
-func New(processor Processor) *UseCase {
-	return &UseCase{processor: processor}
+func NewProcessIncomingMessageUseCase(processor Processor) *ProcessIncomingMessageUseCase {
+	return &ProcessIncomingMessageUseCase{processor: processor}
 }
 
-func (uc *UseCase) Handle(
+func (uc *ProcessIncomingMessageUseCase) Handle(
 	ctx context.Context,
 	msg models.IncomingMessage,
 	cd []domains.CustomData,
@@ -28,8 +27,7 @@ func (uc *UseCase) Handle(
 	if text == "" {
 		return models.OutgoingMessage{Text: "Empty message"}, nil
 	}
-
-	reply, err := uc.processor.Process(ctx, text, cd)
+	reply, err := uc.processor.Process(ctx, msg)
 	if err != nil {
 		return models.OutgoingMessage{Text: "Error while processing message"}, nil
 	}

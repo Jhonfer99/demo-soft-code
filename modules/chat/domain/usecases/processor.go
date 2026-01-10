@@ -3,9 +3,9 @@ package usecases
 import (
 	"context"
 
-	domains "github.com/fsangopanta/demo-soft-code/common/domains"
+	models "github.com/fsangopanta/demo-soft-code/modules/chat/domain/models"
 )
 
 type Processor interface {
-	Process(ctx context.Context, text string, customData []domains.CustomData) (string, error)
+	Process(ctx context.Context, req models.IncomingMessage) (string, error)
 }

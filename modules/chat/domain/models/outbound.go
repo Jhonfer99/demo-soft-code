@@ -1,5 +1,5 @@
 package models
 
 type OutgoingMessage struct {
-	Text string
+	Text string `json:"text"`
 }
