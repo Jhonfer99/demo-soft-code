@@ -41,7 +41,11 @@ func main() {
 
 	// TODO: Manejar inyeccion de dependencias
 	server := gin.Default()
+
 	server.Use(middlewares.CORSMiddleware())
+	server.GET("/", func(c *gin.Context) {
+		c.String(200, "Server unable to handle the request")
+	})
 	// Register incoming modules
 	service_desk.RegisterRoutes(server, injector)
 	googleChat.RegisterRoutes(server, injector)
