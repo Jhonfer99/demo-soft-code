@@ -6,7 +6,6 @@ import (
 	"github.com/fsangopanta/demo-soft-code/config"
 	"github.com/fsangopanta/demo-soft-code/middlewares"
 	googleChat "github.com/fsangopanta/demo-soft-code/modules/chat/infrastructure"
-	google_workspace "github.com/fsangopanta/demo-soft-code/modules/google_workspace"
 	service_desk "github.com/fsangopanta/demo-soft-code/modules/service_desk"
 	providers "github.com/fsangopanta/demo-soft-code/providers"
 	"github.com/gin-gonic/gin"
@@ -45,7 +44,6 @@ func main() {
 	server.Use(middlewares.CORSMiddleware())
 	// Register incoming modules
 	service_desk.RegisterRoutes(server, injector)
-	google_workspace.RegisterRoutes(server, injector)
 	googleChat.RegisterRoutes(server, injector)
 
 	run(server)
