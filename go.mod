@@ -3,7 +3,6 @@ module github.com/fsangopanta/demo-soft-code
 go 1.24.5
 
 require (
-	cloud.google.com/go/chat v0.17.0
 	github.com/gin-gonic/gin v1.11.0
 	golang.org/x/oauth2 v0.33.0
 	google.golang.org/api v0.256.0

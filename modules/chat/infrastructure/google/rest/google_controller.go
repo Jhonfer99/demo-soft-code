@@ -1,8 +1,6 @@
 package infrastructure
 
 import (
-	"log"
-
 	models "github.com/fsangopanta/demo-soft-code/modules/chat/domain/models"
 	usecases "github.com/fsangopanta/demo-soft-code/modules/chat/domain/usecases"
 	"github.com/gin-gonic/gin"
@@ -38,8 +36,6 @@ func (c *googleController) HandleMessage(ctx *gin.Context) {
 	msg.Text = req.Message.Text
 	msg.UserId = req.User.DisplayName
 
-	log.Println("Argumentos recibidos")
-	log.Println(req)
 	out, err := c.processIncomingUC.Handle(
 		ctx.Request.Context(),
 		msg,
